@@ -1,16 +1,21 @@
 # TradeDeskDaily 🟢
 
-> A Matrix-themed end-of-day market update dashboard with stunning terminal visuals
+> A Matrix-themed end-of-day market update dashboard - Available in Terminal & Web Browser
 
 **Live at:** https://tradedeskdaily.com
 
 ## Overview
 
-TradeDeskDaily is a visually striking Python-based market dashboard that delivers real-time market data in a beautiful Matrix-themed terminal interface. Get instant insights into stocks, crypto, commodities, and currencies with color-coded metrics and clean formatting.
+TradeDeskDaily is a visually striking Python-based market dashboard that delivers real-time market data in a beautiful Matrix-themed interface. Available in both **terminal** and **web browser** versions, get instant insights into stocks, crypto, commodities, and currencies with color-coded metrics and clean formatting.
+
+### Two Versions Available
+
+- **🖥️ Terminal Version** (`market_dashboard.py`) - Classic command-line interface with rich text formatting
+- **🌐 Web Version** (`streamlit_app.py`) - Browser-based dashboard with auto-refresh and interactive features
 
 ## Features
 
-- **Matrix Aesthetic**: Beautiful green-on-black terminal interface inspired by The Matrix
+- **Matrix Aesthetic**: Beautiful green-on-black interface inspired by The Matrix
 - **Real-Time Data**: Live market data from Yahoo Finance (via yfinance)
 - **Multi-Asset Coverage**:
   - Major Indices (S&P 500, Dow Jones, NASDAQ, Russell 2000)
@@ -20,6 +25,8 @@ TradeDeskDaily is a visually striking Python-based market dashboard that deliver
 - **Visual Indicators**: Color-coded price changes (green for gains, red for losses)
 - **Market Sentiment**: Overall market sentiment indicator based on S&P 500 performance
 - **Clean Layout**: Organized tables with price, change, change %, and volume data
+- **Auto-Refresh**: Web version includes automatic data refresh every 5 minutes
+- **Responsive Design**: Web version adapts to different screen sizes
 
 ## Installation
 
@@ -43,7 +50,9 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run the dashboard:
+### Terminal Version
+
+Run the terminal dashboard:
 
 ```bash
 python market_dashboard.py
@@ -55,6 +64,23 @@ Or make it executable:
 chmod +x market_dashboard.py
 ./market_dashboard.py
 ```
+
+### Web Version
+
+Run the web dashboard locally:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+The dashboard will open in your browser at `http://localhost:8501`
+
+**Web Features:**
+- 🔄 Auto-refresh every 5 minutes
+- 📊 Interactive tables
+- 🎨 Full Matrix theme styling
+- 📱 Responsive layout
+- ⚙️ Settings sidebar
 
 ## Sample Output
 
@@ -82,20 +108,56 @@ chmod +x market_dashboard.py
 ╚═════════════════╩══════════════╩══════════════╩════════════╩═══════════════╝
 ```
 
+## Deploy to the Web (FREE)
+
+You can deploy the web version to **Streamlit Cloud** for free and access it from anywhere:
+
+### Streamlit Cloud Deployment
+
+1. **Fork this repository** to your GitHub account
+
+2. **Go to** [share.streamlit.io](https://share.streamlit.io)
+
+3. **Sign in** with your GitHub account
+
+4. **Click "New app"** and select:
+   - Repository: `YourUsername/TradeDeskDaily`
+   - Branch: `main` (or your branch)
+   - Main file path: `streamlit_app.py`
+
+5. **Click "Deploy"** - Your app will be live in minutes!
+
+Your dashboard will be accessible at: `https://yourappname.streamlit.app`
+
+### Other Deployment Options
+
+- **Replit**: Import repo and run `streamlit run streamlit_app.py`
+- **Heroku**: Use the included Streamlit configuration
+- **Railway**: One-click deployment from GitHub
+- **Python Anywhere**: Host as a web app
+
 ## Customization
 
-You can easily customize the dashboard by editing `market_dashboard.py`:
+You can easily customize the dashboard:
 
-- **Add/Remove Symbols**: Modify the `self.symbols` dictionary in the `MarketDashboard` class
-- **Change Colors**: Adjust the color constants at the top of the file
-- **Update Refresh Rate**: Add automatic refresh by implementing a timer loop
+**Terminal Version** (`market_dashboard.py`):
+- **Add/Remove Symbols**: Modify the `self.symbols` dictionary
+- **Change Colors**: Adjust the color constants at the top
+
+**Web Version** (`streamlit_app.py`):
+- **Add/Remove Symbols**: Modify the `self.symbols` dictionary
+- **Change Colors**: Edit the custom CSS in the `st.markdown()` section
+- **Update Refresh Rate**: Change the `ttl` parameter in `@st.cache_data` decorator
 
 ## Dependencies
 
 - `yfinance`: Free market data from Yahoo Finance
-- `rich`: Beautiful terminal formatting and colors
+- `rich`: Beautiful terminal formatting and colors (terminal version)
+- `streamlit`: Web framework for the browser version
 - `pandas`: Data manipulation
 - `numpy`: Numerical operations
+
+All dependencies are listed in `requirements.txt`
 
 ## Contributing
 
